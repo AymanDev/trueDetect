@@ -1,0 +1,6 @@
+.chart-custom {
+  height: fit-content;
+  padding: 7px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+}
