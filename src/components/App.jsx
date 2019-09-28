@@ -11,7 +11,7 @@ import "./App.css";
 const App = props => (
   <div className="w-100 h-100">
     <BrowserRouter>
-      <Navbar className="menu">
+      <Navbar className="menu" expand="sm">
         <Navbar.Brand>
           <Link to="/">
             <img src={Logo} width="200"></img>
@@ -19,11 +19,11 @@ const App = props => (
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="mr-auto mt-2 ml-3">
             <Nav.Link disabled href="#home">
               Детальный отчет (WIP)
             </Nav.Link>
-            <Nav.Link disabled href="#link">
+            <Nav.Link disabled href="#link" className="ml-3">
               Выборочный отчет (WIP)
             </Nav.Link>
           </Nav>

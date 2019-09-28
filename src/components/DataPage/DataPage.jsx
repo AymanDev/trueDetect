@@ -1,8 +1,10 @@
 import React from "react";
 import Charty from "react-charty";
 
-import BackgroundImage from "../../../public/background.png";
+import BackgroundImage from "../../../public/background.svg";
 import "./DataPage.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
 class DataPage extends React.Component {
   constructor(props) {
@@ -16,71 +18,11 @@ class DataPage extends React.Component {
         xAxisStep: 1,
         data: {
           x: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-          y0: [
-            0,
-            375827476,
-            405950482,
-            350025489,
-            412599414,
-            0,
-            334756601,
-            363440937,
-            480825172,
-            299653307,
-            323532944
-          ],
-          y1: [
-            228907497,
-            272137386,
-            228669559,
-            267026649,
-            278874194,
-            297981308,
-            318724501,
-            349637236,
-            285649087,
-            368643283,
-            447980568
-          ],
-          y2: [
-            151729266,
-            244595555,
-            213973344,
-            187934565,
-            209883469,
-            164612977,
-            201036506,
-            245573737,
-            157334842,
-            147887868,
-            176581251
-          ],
-          y3: [
-            292402573,
-            191387857,
-            174406757,
-            188043157,
-            131991738,
-            199227435,
-            155477200,
-            153408009,
-            162978825,
-            87443925,
-            94998758
-          ],
-          y4: [
-            106796214,
-            128751724,
-            116501895,
-            117123096,
-            186711044,
-            138499493,
-            118634566,
-            129240950,
-            82084039,
-            77766071,
-            67312441
-          ]
+          y0: [0, 1, 3, 0, 9, 0, 2, 6, 5, 0, 4],
+          y1: [0, 1, 7, 0, 3, 0, 2, 6, 1, 3, 4],
+          y2: [1, 1, 3, 5, 5, 0, 2, 2, 5, 5, 4],
+          y3: [0, 1, 2, 0, 3, 5, 2, 6, 5, 0, 2],
+          y4: [9, 1, 8, 3, 8, 0, 2, 6, 5, 0, 4]
         },
         names: {
           y0: "Дырявые",
@@ -144,6 +86,17 @@ class DataPage extends React.Component {
               startX={0}
               endX={10}
             ></Charty>
+            <div className="legends d-flex flex-column justify-content-center">
+              {Object.entries(this.state.data.names).map(([key, value]) => (
+                <div className="legend" key={key}>
+                  <FontAwesomeIcon
+                    icon={faCircle}
+                    color={this.state.data.colors[key]}
+                  />
+                  <span className="ml-1"> - {value}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
