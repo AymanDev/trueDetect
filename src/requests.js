@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as qs from 'querystring'
 
-const BASE_URL = "http://bbe3275d.ngrok.io";
+const BASE_URL = "http://ed19c165.ngrok.io";
 const TOKEN = "/Token"
 const SURVEYS = "/api/Values/GetAllSurveys"
 

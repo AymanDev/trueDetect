@@ -20,12 +20,12 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    const localToken = localStorage.getItem("token");
-    if (localToken !== null) {
-      this.setState({ token: localToken });
-      return;
-    }
-    this.setState({ show: true });
+    // const localToken = localStorage.getItem("token");
+    // if (localToken !== null) {
+    //   this.setState({ token: localToken });
+    //   return;
+    // }
+    // this.setState({ show: true });
   }
 
   tryToLogin = async event => {
@@ -56,14 +56,14 @@ class App extends React.Component {
                   <Link to="/data">Статистика</Link>
                 </Nav.Link>
               </Nav>
-              <Form inline>
+              {/* <Form inline>
                 <a
                   onClick={() => this.setState({ show: !this.state.show })}
                   className="button"
                 >
                   Авторизоваться
                 </a>
-              </Form>
+              </Form> */}
             </Navbar.Collapse>
           </Navbar>
           <Modal

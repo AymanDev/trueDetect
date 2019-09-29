@@ -18,30 +18,43 @@ class DataPage extends React.Component {
 
   render() {
     const data = [
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" },
-      { hz1: "D", hz2: "U", hz3: "M", hz4: "B" }
+      {
+        data: {
+          x: [1, 2],
+          y0: [20],
+          y1: [30],
+          y2: [10],
+          y3: [4]
+        }
+      },
+      {
+        data: {
+          x: [1, 2],
+          y0: [50],
+          y1: [4],
+          y2: [6],
+          y3: [4]
+        }
+      },
+      {
+        data: {
+          x: [1, 2],
+          y0: [3],
+          y1: [1],
+          y2: [40],
+          y3: [20]
+        }
+      }
     ];
-    getAllSurveys().then(r => console.log(r));
+    // getAllSurveys().then(r => console.log(r));
     return (
       <div
-        className="w-100"
+        className="w-100 h-100"
         style={{
           background: `url(${BackgroundImage})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
-          backgroundAttachment: "fixed",
-          height: "max(device-height, fit-content)"
+          backgroundAttachment: "fixed"
         }}
       >
         <div className="container w-100 py-3" style={{ height: "fit-content" }}>
@@ -67,10 +80,10 @@ class DataPage extends React.Component {
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Hz1</th>
-                    <th>Hz2</th>
-                    <th>Hz3</th>
-                    <th>Hz4</th>
+                    <th>Требуется ручная проверка</th>
+                    <th>Требуется замена трубопровода</th>
+                    <th>В пределах нормы</th>
+                    <th>Ошибка считывания датчика</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -80,10 +93,10 @@ class DataPage extends React.Component {
                       onClick={() => this.setState({ readingDataIndex: index })}
                     >
                       <td>{index}</td>
-                      <td>{value.hz1}</td>
-                      <td>{value.hz2}</td>
-                      <td>{value.hz3}</td>
-                      <td>{value.hz4}</td>
+                      <td>{value.data.y0[0]}</td>
+                      <td>{value.data.y1[0]}</td>
+                      <td>{value.data.y2[0]}</td>
+                      <td>{value.data.y3[0]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -92,7 +105,7 @@ class DataPage extends React.Component {
 
             {this.state.readingDataIndex !== null && (
               <RangePage
-                index={this.state.readingDataIndex}
+                data={data[this.state.readingDataIndex].data}
                 onClose={() => this.setState({ readingDataIndex: null })}
               />
             )}
