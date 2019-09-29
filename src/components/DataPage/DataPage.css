@@ -4,3 +4,11 @@
   background: rgba(255, 255, 255, 1);
   border-radius: 8px;
 }
+
+.breadcrumb {
+  background-color: white !important;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">" !important;
+}

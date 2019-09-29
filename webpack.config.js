@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: ['babel-polyfill', './src/index.jsx'],
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
@@ -16,7 +16,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader'],
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,

@@ -10,19 +10,17 @@ const MainPage = props => {
   const [hover, setHover] = React.useState(false);
   React.useEffect(() => console.log(hover), [hover]);
   return (
-    <div className="w-100" style={{ height: "fit-content" }}>
+    <div className="w-100 h-100" style={{ overflow: "hidden" }}>
       <div
-        className={"w-100 h-100 position-absolute bg " + (hover ? "hover" : "")}
+        className={"w-100 h-100 bg " + (hover ? "hover" : "")}
         style={{
           background: `url(${BackgroundImage})`,
           backgroundPosition: "center center",
-          backgroundSize: "cover",
-          left: 0,
-          top: 0
+          backgroundSize: "cover"
         }}
       ></div>
       <div className="foreground">
-        <h3 className="header">Инновации в будушем</h3>
+        <h3 className="header">Инновации в будущем</h3>
         <Link
           to="/data"
           className="data-button"

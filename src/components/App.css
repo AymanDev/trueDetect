@@ -1,4 +1,39 @@
+a {
+  color: #0079c2 !important;
+}
+a:disabled,
+a[aria-disabled="true"] {
+  opacity: 0.5;
+}
+
 .menu {
   background: rgba(255, 255, 255, 0.8);
   z-index: 999;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  padding: 10px 20px;
+
+  color: rgba(255, 255, 255, 0.75) !important;
+  background: rgba(0, 121, 194, 0.8);
+  border-radius: 50px;
+
+  font-family: "Open Sans", sans-serif;
+
+  overflow: hidden;
+
+  transition: 0.5s ease;
+
+  cursor: pointer;
+}
+.button:hover {
+  text-decoration: none;
+
+  border: 1px solid #0079c2;
+  background: rgba(255, 255, 255, 0.8);
+  color: #0079c2 !important;
 }
